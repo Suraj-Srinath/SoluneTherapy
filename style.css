@@ -6,18 +6,18 @@
 /* ── DESIGN SYSTEM VARIABLES ── */
 :root {
   /* Constant Base Color Palette */
-  --color-linen:       #EDEBE6; /* Warm sand-gray background */
-  --color-cream:       #FAF7F2; /* Soft off-white panels */
-  --color-navy:        #2E4272; /* Premium deep navy */
-  --color-navy-mid:    #3F5285; /* Medium navy for active/hover states */
+  --color-linen:       #FBF9F5; /* Pristine Warm Silk Ivory canvas */
+  --color-cream:       #EFECE3; /* Soft tactile Warm Sand Linen panels & cards */
+  --color-navy:        #253457; /* Rich, authoritative editorial slate-navy */
+  --color-navy-mid:    #36476E; /* Medium slate-navy for active/hover */
   --color-slate:       #6B7FA8; /* Muted slate blue */
-  --color-gold:        #F5B030; /* Vibrant gold highlight */
-  --color-gold-light:  #FFCF45; /* Soft glowing yellow gold */
-  --color-amber:       #E87E28; /* Warm amber accents */
-  --color-mauve:       #8A7298; /* Delicate mauve-purple for italicized highlights */
-  --color-stone:       #9A8E7E; /* Neutral stone gray for readable body text */
-  --color-border:      #D4C9B8; /* Refined thin border tone */
-  --color-border-light:#E8E2D8; /* Extremely soft divider tone */
+  --color-gold:        #E09E2D; /* Warm, radiant burnished gold highlight */
+  --color-gold-light:  #F5B030; /* Glowing warm yellow gold */
+  --color-amber:       #D66F23; /* Rich organic terracotta copper */
+  --color-mauve:       #8A7298; /* Elegant signature mauve-purple */
+  --color-stone:       #807B73; /* Refined, readable warm-taupe body text */
+  --color-border:      #DFDACF; /* Very soft tactile paper-gray border */
+  --color-border-light:#ECE7DB; /* Extremely subtle warm divider tone */
   --color-white:       #FFFFFF;
   
   /* Fonts */
@@ -38,18 +38,18 @@
   --text-highlight:      var(--color-mauve);
   --border-color:        var(--color-border);
   --border-light:        var(--color-border-light);
-  --nav-bg:              rgba(237, 235, 230, 0.9);
-  --nav-bg-scrolled:     rgba(237, 235, 230, 0.95);
-  --nav-shadow:          rgba(46, 66, 114, 0.03);
-  --btn-hover-shadow:    rgba(46, 66, 114, 0.15);
-  --btn-ghost-hover-bg:  rgba(46, 66, 114, 0.02);
-  --card-hover-shadow:   rgba(46, 66, 114, 0.07);
-  --card-hover-border:   rgba(46, 66, 114, 0.15);
-  --text-about:          rgba(250, 247, 242, 0.7);
-  --text-about-title:    var(--color-cream);
-  --input-bg:            var(--color-linen);
+  --nav-bg:              rgba(251, 249, 245, 0.9);
+  --nav-bg-scrolled:     rgba(251, 249, 245, 0.95);
+  --nav-shadow:          rgba(37, 52, 87, 0.03);
+  --btn-hover-shadow:    rgba(37, 52, 87, 0.15);
+  --btn-ghost-hover-bg:  rgba(37, 52, 87, 0.02);
+  --card-hover-shadow:   rgba(37, 52, 87, 0.04);
+  --card-hover-border:   rgba(37, 52, 87, 0.12);
+  --text-about:          rgba(251, 249, 245, 0.75);
+  --text-about-title:    var(--color-linen);
+  --input-bg:            #E6E2D8;
   --input-text:          var(--color-navy);
-  --mobile-menu-bg:      var(--color-cream);
+  --mobile-menu-bg:      var(--color-linen);
 }
 
 /* Premium Cozy Obsidian Dark Mode Theme Overrides */
@@ -174,7 +174,7 @@ nav {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -384,7 +384,7 @@ nav.scrolled {
   width: 100vw;
   height: 100vh;
   background-color: var(--mobile-menu-bg);
-  z-index: 150;
+  z-index: 900;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -423,6 +423,8 @@ nav.scrolled {
   letter-spacing: 0.16em;
   padding: 1rem 2.5rem;
   margin-top: 1.5rem;
+  color: var(--color-cream) !important;
+  background-color: var(--color-navy);
 }
 
 /* ── HERO SECTION ── */
