@@ -5,7 +5,7 @@
 
 /* ── DESIGN SYSTEM VARIABLES ── */
 :root {
-  /* Colors */
+  /* Constant Base Color Palette */
   --color-linen:       #EDEBE6; /* Warm sand-gray background */
   --color-cream:       #FAF7F2; /* Soft off-white panels */
   --color-navy:        #2E4272; /* Premium deep navy */
@@ -28,6 +28,65 @@
   --max-width:         1200px;
   --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   --transition-fast:   all 0.2s ease-in-out;
+
+  /* Semantic Theme-dependent Variables (Default Light Theme) */
+  --bg-primary:          var(--color-linen);
+  --bg-secondary:        var(--color-cream);
+  --bg-about:            var(--color-navy);
+  --text-primary:        var(--color-navy);
+  --text-secondary:      var(--color-stone);
+  --text-highlight:      var(--color-mauve);
+  --border-color:        var(--color-border);
+  --border-light:        var(--color-border-light);
+  --nav-bg:              rgba(237, 235, 230, 0.9);
+  --nav-bg-scrolled:     rgba(237, 235, 230, 0.95);
+  --nav-shadow:          rgba(46, 66, 114, 0.03);
+  --btn-hover-shadow:    rgba(46, 66, 114, 0.15);
+  --btn-ghost-hover-bg:  rgba(46, 66, 114, 0.02);
+  --card-hover-shadow:   rgba(46, 66, 114, 0.07);
+  --card-hover-border:   rgba(46, 66, 114, 0.15);
+  --text-about:          rgba(250, 247, 242, 0.7);
+  --text-about-title:    var(--color-cream);
+  --input-bg:            var(--color-linen);
+  --input-text:          var(--color-navy);
+  --mobile-menu-bg:      var(--color-cream);
+}
+
+/* Premium Cozy Obsidian Dark Mode Theme Overrides */
+[data-theme="dark"] {
+  /* In-place overrides of original colors for non-re-engineered CSS lines */
+  --color-linen:       #0E1119; /* Deep Obsidian Midnight */
+  --color-cream:       #161A23; /* Warm Charcoal Ink panel */
+  --color-navy:        #FAF7F2; /* Cream Soft White */
+  --color-navy-mid:    #EDEBE6; /* Muted soft white for hover */
+  --color-slate:       #A39E93; /* Warm muted stone gray */
+  --color-mauve:       #BAA0C4; /* Lavender Mauve */
+  --color-stone:       #A39E93; /* Warm stone for readable body copy */
+  --color-border:      rgba(255, 255, 255, 0.12); /* Translucent thin border */
+  --color-border-light:rgba(255, 255, 255, 0.06); /* Translucent thinner divider */
+  --color-white:       #161A23;
+
+  /* Overrides for semantic variable properties */
+  --bg-primary:          #0E1119;
+  --bg-secondary:        #161A23;
+  --bg-about:            #1A1E29; /* Contrast warm dark slate */
+  --text-primary:        #FAF7F2;
+  --text-secondary:      #A39E93;
+  --text-highlight:      #BAA0C4;
+  --border-color:        rgba(255, 255, 255, 0.12);
+  --border-light:        rgba(255, 255, 255, 0.06);
+  --nav-bg:              rgba(14, 17, 25, 0.9);
+  --nav-bg-scrolled:     rgba(14, 17, 25, 0.95);
+  --nav-shadow:          rgba(0, 0, 0, 0.2);
+  --btn-hover-shadow:    rgba(0, 0, 0, 0.25);
+  --btn-ghost-hover-bg:  rgba(255, 255, 255, 0.04);
+  --card-hover-shadow:   rgba(0, 0, 0, 0.3);
+  --card-hover-border:   rgba(255, 255, 255, 0.25);
+  --text-about:          rgba(250, 247, 242, 0.75);
+  --text-about-title:    #FAF7F2;
+  --input-bg:            #1A1E29;
+  --input-text:          #FAF7F2;
+  --mobile-menu-bg:      #0E1119;
 }
 
 /* ── RESET & BASE STYLES ── */
@@ -44,14 +103,20 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--color-linen);
-  color: var(--color-navy);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   font-weight: 400;
   line-height: 1.75;
   letter-spacing: 0.01em;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Smooth premium theme-switching transitions for all brand/layout base elements */
+section, footer, h1, h2, h3, h4, p, span, a, input, button, svg, circle, hr, .strip {
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, fill 0.4s ease, stroke 0.4s ease;
 }
 
 /* ── UTILITIES & WRAPPERS ── */
@@ -81,7 +146,7 @@ em {
 
 .section-label {
   font-family: var(--font-sans);
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.28em;
   text-transform: uppercase;
@@ -92,7 +157,7 @@ em {
 
 .section-title {
   font-family: var(--font-serif);
-  font-size: clamp(34px, 4.5vw, 54px);
+  font-size: clamp(35px, 4.5vw, 55px);
   font-weight: 400;
   line-height: 1.15;
   color: var(--color-navy);
@@ -114,7 +179,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 1.25rem 4rem;
-  background: rgba(237, 235, 230, 0.9); /* Opaque linen matching the design */
+  background: var(--nav-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 0.5px solid var(--color-border-light);
@@ -123,8 +188,8 @@ nav {
 
 nav.scrolled {
   padding: 1rem 4rem;
-  background: rgba(237, 235, 230, 0.95);
-  box-shadow: 0 4px 30px rgba(46, 66, 114, 0.03);
+  background: var(--nav-bg-scrolled);
+  box-shadow: 0 4px 30px var(--nav-shadow);
 }
 
 .nav-brand {
@@ -149,7 +214,7 @@ nav.scrolled {
 
 .nav-wordmark {
   font-family: var(--font-serif);
-  font-size: 19px;
+  font-size: 20px;
   font-weight: 400;
   letter-spacing: 0.3em;
   color: var(--color-navy);
@@ -164,7 +229,7 @@ nav.scrolled {
 
 .nav-links a:not(.btn-nav) {
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -200,7 +265,7 @@ nav.scrolled {
 /* Navigation button */
 .btn-nav {
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 400;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -218,7 +283,61 @@ nav.scrolled {
 .btn-nav:hover {
   background-color: var(--color-navy-mid);
   transform: translateY(-1px);
-  box-shadow: 0 4px 15px rgba(46, 66, 114, 0.15);
+  box-shadow: 0 4px 15px var(--btn-hover-shadow);
+}
+
+/* Navigation Actions (Toggle & Hamburger wrapper) */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-smooth);
+  position: relative;
+}
+
+.theme-toggle:hover {
+  background-color: rgba(46, 66, 114, 0.05);
+  transform: scale(1.08);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.theme-toggle svg {
+  stroke: currentColor;
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Toggle visibility of sun/moon icons based on theme */
+.theme-toggle .sun-icon {
+  display: none;
+}
+
+.theme-toggle .moon-icon {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle .sun-icon {
+  display: block;
+  transform: rotate(360deg);
+}
+
+[data-theme="dark"] .theme-toggle .moon-icon {
+  display: none;
 }
 
 /* Hamburger menu button */
@@ -264,7 +383,7 @@ nav.scrolled {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: var(--color-cream);
+  background-color: var(--mobile-menu-bg);
   z-index: 150;
   display: flex;
   flex-direction: column;
@@ -273,7 +392,7 @@ nav.scrolled {
   gap: 2.25rem;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.4s ease, visibility 0.4s ease;
+  transition: opacity 0.4s ease, visibility 0.4s ease, background-color 0.4s ease;
   padding: 2rem;
 }
 
@@ -284,7 +403,7 @@ nav.scrolled {
 
 .mobile-menu a {
   font-family: var(--font-serif);
-  font-size: 32px;
+  font-size: 33px;
   font-weight: 400;
   color: var(--color-navy);
   text-decoration: none;
@@ -299,7 +418,7 @@ nav.scrolled {
 
 .mobile-menu .btn-nav {
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 400;
   letter-spacing: 0.16em;
   padding: 1rem 2.5rem;
@@ -329,7 +448,7 @@ nav.scrolled {
   width: 720px;
   height: 720px;
   border-radius: 50%;
-  border: 0.5px solid rgba(212, 201, 184, 0.4);
+  border: 0.5px solid var(--border-color);
   pointer-events: none;
   animation: breathe 10s ease-in-out infinite;
   z-index: 1;
@@ -407,7 +526,7 @@ nav.scrolled {
 
 .hero-desc {
   font-family: var(--font-sans);
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -430,7 +549,7 @@ nav.scrolled {
 
 .btn-primary {
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -442,18 +561,18 @@ nav.scrolled {
   cursor: pointer;
   text-decoration: none;
   transition: var(--transition-smooth);
-  box-shadow: 0 4px 10px rgba(46, 66, 114, 0.08);
+  box-shadow: 0 4px 10px var(--nav-shadow);
 }
 
 .btn-primary:hover {
   background-color: var(--color-navy-mid);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(46, 66, 114, 0.15);
+  box-shadow: 0 8px 24px var(--btn-hover-shadow);
 }
 
 .btn-ghost {
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -469,7 +588,7 @@ nav.scrolled {
 
 .btn-ghost:hover {
   border-color: var(--color-navy);
-  background-color: rgba(46, 66, 114, 0.02);
+  background-color: var(--btn-ghost-hover-bg);
   transform: translateY(-2px);
 }
 
@@ -483,7 +602,7 @@ nav.scrolled {
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 400;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -552,7 +671,7 @@ nav.scrolled {
 
 .strip-item {
   font-family: var(--font-sans);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -590,7 +709,7 @@ nav.scrolled {
 
 .phil-body {
   font-family: var(--font-sans);
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 400;
   color: var(--color-stone);
   line-height: 1.9;
@@ -622,13 +741,13 @@ nav.scrolled {
 
 .pillar-num {
   font-family: var(--font-serif);
-  font-size: 14px;
+  font-size: 19px;
   font-weight: 400;
   color: var(--color-gold);
   letter-spacing: 0.05em;
   padding-top: 3px;
   flex-shrink: 0;
-  width: 24px;
+  width: 30px;
 }
 
 .pillar-content {
@@ -637,7 +756,7 @@ nav.scrolled {
 
 .pillar-title {
   font-family: var(--font-serif);
-  font-size: 24px;
+  font-size: 25px;
   font-weight: 400;
   color: var(--color-navy);
   margin-bottom: 0.5rem;
@@ -646,7 +765,7 @@ nav.scrolled {
 
 .pillar-desc {
   font-family: var(--font-sans);
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 400;
   color: var(--color-stone);
   line-height: 1.85;
@@ -700,13 +819,13 @@ nav.scrolled {
 
 .service-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 16px 45px rgba(46, 66, 114, 0.07);
-  border-color: rgba(46, 66, 114, 0.15);
+  box-shadow: 0 16px 45px var(--card-hover-shadow);
+  border-color: var(--card-hover-border);
 }
 
 .service-icon {
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -716,7 +835,7 @@ nav.scrolled {
 
 .service-title {
   font-family: var(--font-serif);
-  font-size: 26px;
+  font-size: 27px;
   font-weight: 400;
   color: var(--color-navy);
   margin-bottom: 1rem;
@@ -725,7 +844,7 @@ nav.scrolled {
 
 .service-desc {
   font-family: var(--font-sans);
-  font-size: 14.5px;
+  font-size: 15.5px;
   font-weight: 400;
   color: var(--color-stone);
   line-height: 1.8;
@@ -735,7 +854,7 @@ nav.scrolled {
 
 .service-link {
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -763,8 +882,8 @@ nav.scrolled {
 
 /* ── ABOUT SECTION ── */
 .about {
-  background-color: var(--color-navy);
-  color: var(--color-cream);
+  background-color: var(--bg-about);
+  color: var(--text-about-title);
 }
 
 .about .section-label {
@@ -772,7 +891,7 @@ nav.scrolled {
 }
 
 .about .section-title {
-  color: var(--color-cream);
+  color: var(--text-about-title);
 }
 
 .about .section-title em {
@@ -829,17 +948,18 @@ nav.scrolled {
 
 .about-portrait-placeholder p {
   font-family: var(--font-sans);
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(250, 247, 242, 0.35);
+  color: var(--text-about);
+  opacity: 0.5;
 }
 
 .about-body {
   font-family: var(--font-sans);
-  font-size: 15.5px;
+  font-size: 16.5px;
   font-weight: 400;
-  color: rgba(250, 247, 242, 0.7);
+  color: var(--text-about);
   line-height: 1.9;
   margin-top: 2rem;
 }
@@ -858,12 +978,12 @@ nav.scrolled {
   gap: 3rem;
   margin-top: 3rem;
   padding-top: 2.5rem;
-  border-top: 0.5px solid rgba(255, 255, 255, 0.1);
+  border-top: 0.5px solid var(--border-color);
 }
 
 .cred-num {
   font-family: var(--font-serif);
-  font-size: 40px;
+  font-size: 41px;
   font-weight: 400;
   color: var(--color-gold);
   line-height: 1;
@@ -871,10 +991,11 @@ nav.scrolled {
 
 .cred-label {
   font-family: var(--font-sans);
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(250, 247, 242, 0.5);
+  color: var(--text-about);
+  opacity: 0.7;
   margin-top: 6px;
 }
 
@@ -891,7 +1012,7 @@ nav.scrolled {
 
 .waitlist-sub {
   font-family: var(--font-sans);
-  font-size: 15.5px;
+  font-size: 16.5px;
   font-weight: 400;
   color: var(--color-stone);
   margin: 1.25rem auto 3rem;
@@ -913,13 +1034,13 @@ nav.scrolled {
 
 .waitlist-form:focus-within {
   border-color: var(--color-navy);
-  box-shadow: 0 8px 30px rgba(46, 66, 114, 0.06);
+  box-shadow: 0 8px 30px var(--btn-hover-shadow);
 }
 
 .waitlist-form input {
   flex: 1;
   font-family: var(--font-sans);
-  font-size: 13.5px;
+  font-size: 14.5px;
   font-weight: 400;
   letter-spacing: 0.04em;
   color: var(--color-navy);
@@ -936,7 +1057,7 @@ nav.scrolled {
 
 .waitlist-form button {
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -960,7 +1081,7 @@ nav.scrolled {
 
 .waitlist-note {
   font-family: var(--font-sans);
-  font-size: 11.5px;
+  font-size: 12.5px;
   letter-spacing: 0.04em;
   color: var(--color-stone);
   margin-top: 1.25rem;
@@ -996,7 +1117,7 @@ footer {
 
 .footer-wordmark {
   font-family: var(--font-serif);
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 400;
   letter-spacing: 0.28em;
   color: var(--color-navy);
@@ -1004,7 +1125,7 @@ footer {
 
 .footer-tagline {
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--color-stone);
@@ -1022,7 +1143,7 @@ footer {
 
 .footer-col-label {
   font-family: var(--font-sans);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -1033,7 +1154,7 @@ footer {
 .footer-col a, .footer-col p {
   display: block;
   font-family: var(--font-sans);
-  font-size: 13.5px;
+  font-size: 14.5px;
   font-weight: 400;
   color: var(--color-stone);
   text-decoration: none;
@@ -1060,7 +1181,7 @@ footer {
 
 .footer-copy {
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 400;
   color: var(--color-stone);
   letter-spacing: 0.04em;
@@ -1205,7 +1326,7 @@ footer {
   }
   
   .hero-desc {
-    font-size: 13.5px;
+    font-size: 14.5px;
     letter-spacing: 0.12em;
     margin-bottom: 2.25rem;
   }
@@ -1241,7 +1362,7 @@ footer {
   }
   
   .pillar-title {
-    font-size: 21px;
+    font-size: 22px;
   }
   
   .services-grid {
@@ -1264,7 +1385,7 @@ footer {
   }
   
   .cred-num {
-    font-size: 34px;
+    font-size: 35px;
   }
   
   /* Subscription form stacked structure on narrow viewports */
