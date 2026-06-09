@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Solune Therapy — Clinical Psychology, Mumbai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --linen:    #EDEBE6;
+    --cream:    #FAF7F2;
+    --navy:     #2E4272;
+    --navy-mid: #3F5285;
+    --slate:    #6B7FA8;
+    --gold:     #F5B030;
+    --amber:    #E87E28;
+    --mauve:    #8A7298;
+    --stone:    #9A8E7E;
+    --border:   #D4C9B8;
+    --border-light: #E8E2D8;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--linen);
+    color: var(--navy);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 4rem;
+    background: rgba(237,235,230,0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border-light);
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .nav-wordmark {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    color: var(--navy);
+    padding-left: 0.3em;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  .nav-links a {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stone);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--navy); }
+
+  .btn-nav {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--cream);
+    background: var(--navy);
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .btn-nav:hover { background: var(--navy-mid); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8rem 2rem 5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    border: 0.5px solid rgba(213,196,175,0.4);
+    pointer-events: none;
+    animation: breathe 8s ease-in-out infinite;
+  }
+
+  .hero-bg-ring-2 {
+    width: 520px;
+    height: 520px;
+    animation-delay: -3s;
+  }
+
+  @keyframes breathe {
+    0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
+    50%       { opacity: 0.7; transform: translate(-50%, -50%) scale(1.03); }
+  }
+
+  .orb-wrap {
+    position: relative;
+    margin-bottom: 2rem;
+    animation: floatOrb 6s ease-in-out infinite;
+  }
+
+  @keyframes floatOrb {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-8px); }
+  }
+
+  .hero-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(48px, 7vw, 82px);
+    font-weight: 300;
+    line-height: 1.08;
+    color: var(--navy);
+    letter-spacing: 0.02em;
+    margin-bottom: 0.5rem;
+    max-width: 780px;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--mauve);
+  }
+
+  .hero-sub {
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    color: var(--slate);
+    text-transform: uppercase;
+    margin-bottom: 2.25rem;
+  }
+
+  .hero-desc {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--stone);
+    max-width: 480px;
+    margin: 0 auto 2.75rem;
+    line-height: 1.85;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cream);
+    background: var(--navy);
+    border: none;
+    padding: 0.85rem 2.25rem;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: var(--navy-mid);
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: transparent;
+    border: 0.5px solid var(--border);
+    padding: 0.85rem 2.25rem;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--navy);
+    transform: translateY(-1px);
+  }
+
+  .hero-scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--border);
+  }
+
+  .scroll-line {
+    width: 0.5px;
+    height: 40px;
+    background: var(--border);
+    animation: scrollLine 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollLine {
+    0%   { transform: scaleY(0); transform-origin: top; opacity: 0; }
+    40%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
+    70%  { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
+    100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+  }
+
+  /* ── MARQUEE STRIP ── */
+  .strip {
+    overflow: hidden;
+    border-top: 0.5px solid var(--border-light);
+    border-bottom: 0.5px solid var(--border-light);
+    background: var(--cream);
+    padding: 0.9rem 0;
+  }
+
+  .strip-track {
+    display: flex;
+    gap: 3rem;
+    width: max-content;
+    animation: marquee 28s linear infinite;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  .strip-item {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--stone);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .strip-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 7rem 2rem; }
+
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 9px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(34px, 4.5vw, 52px);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--navy);
+    max-width: 600px;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--mauve);
+  }
+
+  /* ── PHILOSOPHY ── */
+  .philosophy { background: var(--cream); }
+
+  .phil-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+    margin-top: 4rem;
+  }
+
+  .phil-left {}
+
+  .phil-body {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--stone);
+    line-height: 1.9;
+    margin-top: 1.5rem;
+    max-width: 480px;
+  }
+
+  .phil-pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .pillar {
+    display: flex;
+    gap: 1.75rem;
+    align-items: flex-start;
+    padding: 2rem 0;
+    border-bottom: 0.5px solid var(--border-light);
+  }
+
+  .pillar:first-child { border-top: 0.5px solid var(--border-light); }
+
+  .pillar-num {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    padding-top: 4px;
+    flex-shrink: 0;
+    width: 24px;
+  }
+
+  .pillar-content {}
+
+  .pillar-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 0.35rem;
+  }
+
+  .pillar-desc {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--stone);
+    line-height: 1.8;
+  }
+
+  /* ── SERVICES ── */
+  .services { background: var(--linen); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
+
+  .service-card {
+    background: var(--cream);
+    border: 0.5px solid var(--border);
+    border-radius: 4px;
+    padding: 2.25rem 2rem;
+    transition: transform 0.25s, box-shadow 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(46,66,114,0.08);
+  }
+
+  .service-icon {
+    font-size: 13px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 1.25rem;
+  }
+
+  .service-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--navy);
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+  }
+
+  .service-desc {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--stone);
+    line-height: 1.85;
+    margin-bottom: 1.75rem;
+  }
+
+  .service-link {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--slate);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s, gap 0.2s;
+  }
+
+  .service-link:hover { color: var(--navy); gap: 10px; }
+
+  .service-arrow {
+    display: inline-block;
+    transition: transform 0.2s;
+  }
+
+  .service-link:hover .service-arrow { transform: translateX(3px); }
+
+  /* ── ABOUT ── */
+  .about { background: var(--navy); color: var(--cream); }
+
+  .about .section-label { color: var(--gold); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 6rem;
+    align-items: center;
+    margin-top: 4rem;
+  }
+
+  .about-portrait {
+    aspect-ratio: 3/4;
+    max-width: 340px;
+    background: rgba(255,255,255,0.05);
+    border: 0.5px solid rgba(255,255,255,0.12);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-portrait-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .about-portrait-placeholder p {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(250,247,242,0.3);
+    text-align: center;
+  }
+
+  .about .section-title {
+    color: var(--cream);
+    max-width: 520px;
+  }
+
+  .about .section-title em { color: #FFCF45; }
+
+  .about-body {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(250,247,242,0.65);
+    line-height: 1.9;
+    margin-top: 1.5rem;
+  }
+
+  .about-creds {
+    display: flex;
+    gap: 2.5rem;
+    margin-top: 2.5rem;
+    padding-top: 2.5rem;
+    border-top: 0.5px solid rgba(255,255,255,0.1);
+  }
+
+  .cred {}
+
+  .cred-num {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .cred-label {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(250,247,242,0.45);
+    margin-top: 4px;
+  }
+
+  /* ── WAITLIST ── */
+  .waitlist { background: var(--cream); text-align: center; }
+
+  .waitlist .section-title {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .waitlist-sub {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--stone);
+    margin: 1rem auto 2.5rem;
+    max-width: 420px;
+    line-height: 1.8;
+  }
+
+  .waitlist-form {
+    display: flex;
+    gap: 0;
+    max-width: 440px;
+    margin: 0 auto;
+    border: 0.5px solid var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    background: var(--linen);
+  }
+
+  .waitlist-form input {
+    flex: 1;
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    color: var(--navy);
+    background: transparent;
+    border: none;
+    padding: 0.9rem 1.25rem;
+    outline: none;
+  }
+
+  .waitlist-form input::placeholder { color: var(--stone); }
+
+  .waitlist-form button {
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cream);
+    background: var(--navy);
+    border: none;
+    padding: 0.9rem 1.5rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+
+  .waitlist-form button:hover { background: var(--navy-mid); }
+
+  .waitlist-note {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--stone);
+    margin-top: 1rem;
+    opacity: 0.7;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--linen);
+    border-top: 0.5px solid var(--border-light);
+    padding: 4rem 2rem;
+  }
+
+  .footer-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-brand {}
+
+  .footer-wordmark {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0.28em;
+    color: var(--navy);
+    padding-left: 0.28em;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-tagline {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--stone);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 4rem;
+  }
+
+  .footer-col {}
+
+  .footer-col-label {
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  .footer-col a, .footer-col p {
+    display: block;
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--stone);
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    transition: color 0.2s;
+  }
+
+  .footer-col a:hover { color: var(--navy); }
+
+  .footer-bottom {
+    max-width: 1080px;
+    margin: 3rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 0.5px solid var(--border-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-copy {
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--stone);
+    letter-spacing: 0.04em;
+    opacity: 0.7;
+  }
+
+  /* ── FADE-IN ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── HAMBURGER ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+    z-index: 200;
+  }
+
+  .nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 1px;
+    background: var(--navy);
+    transition: all 0.3s;
+    transform-origin: center;
+  }
+
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--cream);
+    z-index: 150;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+
+  .mobile-menu.open {
+    display: flex;
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .mobile-menu a {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--navy);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+  }
+
+  .mobile-menu .btn-nav {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    margin-top: 1rem;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1.1rem 1.75rem; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .phil-grid, .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .about-portrait { max-width: 100%; aspect-ratio: 4/3; }
+    .footer-links { gap: 2rem; }
+  }
+
+  @media (max-width: 600px) {
+    nav { padding: 1rem 1.25rem; }
+
+    .hero {
+      padding: 7rem 1.5rem 4rem;
+      min-height: 100svh;
+    }
+
+    .hero-bg-ring { width: min(90vw, 380px); height: min(90vw, 380px); }
+    .hero-bg-ring-2 { width: min(68vw, 290px); height: min(68vw, 290px); }
+
+    .orb-wrap svg { width: 80px; height: 80px; }
+
+    .hero-title {
+      font-size: clamp(38px, 11vw, 56px);
+      line-height: 1.1;
+    }
+
+    .hero-desc { font-size: 14px; }
+
+    .hero-ctas { flex-direction: column; width: 100%; }
+    .btn-primary, .btn-ghost { width: 100%; text-align: center; padding: 1rem 2rem; }
+
+    section { padding: 4rem 1.25rem; }
+
+    .phil-grid { margin-top: 2rem; gap: 2.5rem; }
+    .phil-body { font-size: 15px; }
+
+    .services-grid { grid-template-columns: 1fr; gap: 1rem; margin-top: 2rem; }
+    .service-card { padding: 1.75rem 1.5rem; }
+
+    .about-grid { margin-top: 2rem; gap: 2rem; }
+    .about-portrait { aspect-ratio: 3/2; max-width: 100%; }
+
+    .waitlist-form { flex-direction: column; border-radius: 3px; }
+    .waitlist-form input { padding: 1rem 1.25rem; }
+    .waitlist-form button { padding: 1rem 1.25rem; border-radius: 0; }
+
+    footer { padding: 3rem 1.25rem; }
+    .footer-inner { flex-direction: column; gap: 2rem; }
+    .footer-links { flex-direction: column; gap: 2rem; }
+    .footer-bottom { flex-direction: column; text-align: center; gap: 0.5rem; }
+
+    .section-title { font-size: clamp(28px, 8vw, 40px); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#">
+    <svg viewBox="0 0 100 100" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="ng" cx="45%" cy="38%" r="80%" fx="40%" fy="34%">
+          <stop offset="0%"   stop-color="#FFCF45"/>
+          <stop offset="22%"  stop-color="#F5B030"/>
+          <stop offset="42%"  stop-color="#E87E28"/>
+          <stop offset="63%"  stop-color="#8A7298"/>
+          <stop offset="81%"  stop-color="#3F5285"/>
+          <stop offset="100%" stop-color="#2E3F6E"/>
+        </radialGradient>
+      </defs>
+      <circle cx="50" cy="50" r="46" fill="url(#ng)"/>
+    </svg>
+    <span class="nav-wordmark">SOLUNE</span>
+  </a>
+  <div class="nav-links">
+    <a href="#philosophy">Our Approach</a>
+    <a href="#sessions">Sessions</a>
+    <a href="#resources">Resources</a>
+    <a href="#about">About</a>
+    <a href="#contact" class="btn-nav">Get in Touch</a>
+  </div>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#philosophy" class="mobile-link">Our Approach</a>
+  <a href="#sessions" class="mobile-link">Sessions</a>
+  <a href="#resources" class="mobile-link">Resources</a>
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#contact" class="btn-nav mobile-link">Get in Touch</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-ring"></div>
+  <div class="hero-bg-ring hero-bg-ring-2"></div>
+
+  <div class="orb-wrap">
+    <svg viewBox="0 0 100 100" width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="hg" cx="45%" cy="38%" r="80%" fx="40%" fy="34%">
+          <stop offset="0%"   stop-color="#FFCF45"/>
+          <stop offset="22%"  stop-color="#F5B030"/>
+          <stop offset="42%"  stop-color="#E87E28"/>
+          <stop offset="63%"  stop-color="#8A7298"/>
+          <stop offset="81%"  stop-color="#3F5285"/>
+          <stop offset="100%" stop-color="#2E3F6E"/>
+        </radialGradient>
+      </defs>
+      <circle cx="50" cy="50" r="46" fill="url(#hg)"/>
+    </svg>
+  </div>
+
+  <h1 class="hero-title">
+    Wellness that works<br>with <em>all of you</em>
+  </h1>
+
+  <p class="hero-desc">
+    A psychology practice grounded in research and clinical experience
+  </p>
+
+  <div class="hero-ctas">
+    <a href="#contact" class="btn-primary">Get in Touch</a>
+    <a href="#sessions" class="btn-ghost">Explore Sessions</a>
+  </div>
+
+  <div class="hero-scroll-hint">
+    <div class="scroll-line"></div>
+    scroll
+  </div>
+</section>
+
+<!-- MARQUEE STRIP -->
+<div class="strip">
+  <div class="strip-track">
+    <!-- first set -->
+    <span class="strip-item"><span class="strip-dot"></span> Individual Therapy</span>
+    <span class="strip-item"><span class="strip-dot"></span> Clinical Psychology</span>
+    <span class="strip-item"><span class="strip-dot"></span> Anxiety & Stress</span>
+    <span class="strip-item"><span class="strip-dot"></span> Burnout & Recovery</span>
+    <span class="strip-item"><span class="strip-dot"></span> Life Transitions</span>
+    <span class="strip-item"><span class="strip-dot"></span> Grief & Loss</span>
+    <span class="strip-item"><span class="strip-dot"></span> Identity & Self-Worth</span>
+    <span class="strip-item"><span class="strip-dot"></span> Relationships</span>
+    <!-- duplicate for seamless loop -->
+    <span class="strip-item"><span class="strip-dot"></span> Individual Therapy</span>
+    <span class="strip-item"><span class="strip-dot"></span> Clinical Psychology</span>
+    <span class="strip-item"><span class="strip-dot"></span> Anxiety & Stress</span>
+    <span class="strip-item"><span class="strip-dot"></span> Burnout & Recovery</span>
+    <span class="strip-item"><span class="strip-dot"></span> Life Transitions</span>
+    <span class="strip-item"><span class="strip-dot"></span> Grief & Loss</span>
+    <span class="strip-item"><span class="strip-dot"></span> Identity & Self-Worth</span>
+    <span class="strip-item"><span class="strip-dot"></span> Relationships</span>
+  </div>
+</div>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy" id="philosophy">
+  <div class="container">
+    <div class="phil-grid fade-in">
+      <div class="phil-left">
+        <p class="section-label">Our Approach</p>
+        <h2 class="section-title">Therapy that <em>meets</em> your nervous system first</h2>
+        <p class="phil-body">
+          At Solune, we believe that healing is not a performance. It is a process — and one that deserves
+          a foundation sturdy enough to hold real weight. Our work begins not with goals, but with
+          the quiet, essential work of helping your body feel safe enough to begin.
+        </p>
+      </div>
+      <div class="phil-pillars">
+        <div class="pillar">
+          <span class="pillar-num">01</span>
+          <div class="pillar-content">
+            <p class="pillar-title">Regulation First</p>
+            <p class="pillar-desc">Before we explore patterns or build insight, we attend to the nervous system. Safety is not a given — it is something we build together, session by session.</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <span class="pillar-num">02</span>
+          <div class="pillar-content">
+            <p class="pillar-title">Evidence-Based</p>
+            <p class="pillar-desc">Every approach at Solune is grounded in research — not trend. We draw from validated clinical frameworks to offer care that holds up over time.</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <span class="pillar-num">03</span>
+          <div class="pillar-content">
+            <p class="pillar-title">At Your Pace</p>
+            <p class="pillar-desc">There is no template for how long this takes or what it looks like. Sessions are shaped by what you bring, not by a predetermined programme.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SESSIONS -->
+<section class="services" id="sessions">
+  <div class="container">
+    <p class="section-label fade-in">Sessions</p>
+    <h2 class="section-title fade-in">How we <em>work together</em></h2>
+
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <p class="service-icon">Intro</p>
+        <h3 class="service-title">Discovery Call</h3>
+        <p class="service-desc">Not sure if Solune is the right fit? A brief, no-pressure conversation to ask questions, share what brings you here, and sense whether we work well together.</p>
+        <a href="#contact" class="service-link">Book a call <span class="service-arrow">→</span></a>
+      </div>
+      <div class="service-card fade-in" style="transition-delay: 0.1s;">
+        <p class="service-icon">1 : 1</p>
+        <h3 class="service-title">Individual Therapy</h3>
+        <p class="service-desc">A private, consistent space to explore what's beneath the surface. Sessions are tailored to your pace and to what you bring each time.</p>
+        <a href="#contact" class="service-link">Reserve your spot <span class="service-arrow">→</span></a>
+      </div>
+      <div class="service-card fade-in" style="transition-delay: 0.2s;">
+        <p class="service-icon">Coming Soon</p>
+        <h3 class="service-title">Group & Community</h3>
+        <p class="service-desc">Facilitated spaces for shared learning and connection. Designed with the same care and rigour as our individual work.</p>
+        <a href="#contact" class="service-link">Reach out to us <span class="service-arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-portrait fade-in">
+        <div class="about-portrait-placeholder">
+          <svg viewBox="0 0 100 100" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="ag" cx="45%" cy="38%" r="80%" fx="40%" fy="34%">
+                <stop offset="0%"   stop-color="#FFCF45" stop-opacity="0.5"/>
+                <stop offset="100%" stop-color="#2E3F6E" stop-opacity="0.5"/>
+              </radialGradient>
+            </defs>
+            <circle cx="50" cy="50" r="46" fill="url(#ag)"/>
+          </svg>
+          <p>Photo coming soon</p>
+        </div>
+      </div>
+      <div class="fade-in" style="transition-delay: 0.15s;">
+        <p class="section-label">About</p>
+        <h2 class="section-title">Radha Rao,<br><em>Psychologist</em></h2>
+        <p class="about-body">
+          I am a clinical psychologist with over five years of experience working alongside
+          people navigating some of life's most demanding seasons — from professionals under
+          pressure to individuals facing illness, loss, and significant life change.<br><br>
+          Solune is built on what I have seen to be true in clinical work: that people do not
+          need to be fixed. They need space, honesty, and a practice grounded in how the
+          body and mind actually work.
+        </p>
+        <div class="about-creds">
+          <div class="cred">
+            <p class="cred-num">5+</p>
+            <p class="cred-label">Years clinical practice</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="waitlist" id="contact">
+  <div class="container">
+    <p class="section-label fade-in">Get in Touch</p>
+    <h2 class="section-title fade-in">Not sure where to start?<br><em>That's a fine place to begin.</em></h2>
+    <p class="waitlist-sub fade-in">
+      Send us a message and we will get back to you within a couple of days.
+      No forms, no fuss — just an email.
+    </p>
+    <div class="waitlist-form fade-in">
+      <input type="email" placeholder="your@email.com" aria-label="Email address"/>
+      <button type="submit">Reach Out</button>
+    </div>
+    <p class="waitlist-note fade-in">Or write to us directly at hello@solunetherapy.com</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.75rem;">
+        <svg viewBox="0 0 100 100" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="fg" cx="45%" cy="38%" r="80%" fx="40%" fy="34%">
+              <stop offset="0%"   stop-color="#FFCF45"/>
+              <stop offset="22%"  stop-color="#F5B030"/>
+              <stop offset="42%"  stop-color="#E87E28"/>
+              <stop offset="63%"  stop-color="#8A7298"/>
+              <stop offset="81%"  stop-color="#3F5285"/>
+              <stop offset="100%" stop-color="#2E3F6E"/>
+            </radialGradient>
+          </defs>
+          <circle cx="50" cy="50" r="46" fill="url(#fg)"/>
+        </svg>
+        <span class="footer-wordmark" style="margin:0; font-size:16px;">SOLUNE</span>
+      </div>
+      <p class="footer-tagline">Mumbai</p>
+    </div>
+
+    <div class="footer-links">
+      <div class="footer-col">
+        <p class="footer-col-label">Navigate</p>
+        <a href="#philosophy">Our Approach</a>
+        <a href="#sessions">Sessions</a>
+        <a href="#resources">Resources</a>
+        <a href="#about">About</a>
+        <a href="#contact">Get in Touch</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-label">Connect</p>
+        <p>hello@solunetherapy.com</p>
+        <p>+91 77383 85079</p>
+        <a href="https://instagram.com/solune.therapy" target="_blank">@solune.therapy</a>
+        <p>www.solunetherapy.com</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 Solune Therapy. All rights reserved.</p>
+    <p class="footer-copy">Designed with intention &nbsp;·&nbsp; Mumbai, India</p>
+  </div>
+</footer>
+
+<script>
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  document.querySelector('.waitlist-form button').addEventListener('click', function() {
+    const input = document.querySelector('.waitlist-form input');
+    const val = input.value.trim();
+    if (!val || !val.includes('@')) {
+      input.style.borderLeft = '2px solid #E87E28';
+      input.focus();
+      return;
+    }
+    this.textContent = 'Message sent ✓';
+    this.style.background = '#3F5285';
+    input.value = '';
+    input.disabled = true;
+    this.disabled = true;
+  });
+</script>
+
+</body>
+</html>
