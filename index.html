@@ -264,6 +264,113 @@
     </div>
   </section>
 
+  <!-- ── FAQ SECTION ── -->
+  <section class="faq-section" id="faq">
+    <div class="container" style="max-width: 900px;">
+      <span class="section-label fade-in">Common Enquiries</span>
+      <h2 class="section-title fade-in delay-100">Frequently Asked <em>Questions</em></h2>
+      
+      <div class="faq-accordion fade-in delay-200">
+        
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span class="faq-question">What can I expect from a Discovery Call?</span>
+            <span class="faq-icon" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19" class="line-v"></line>
+                <line x1="5" y1="12" x2="19" y2="12" class="line-h"></line>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-panel" aria-hidden="true">
+            <div class="faq-content">
+              <p>
+                The 15-minute discovery call is a brief, no-pressure, complimentary conversation. It is designed for us to briefly discuss what is prompting you to seek therapy, answer any practical questions you have about scheduling or fees, and align on whether we are a good fit before booking a clinical session.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span class="faq-question">How long are sessions and how often do we meet?</span>
+            <span class="faq-icon" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19" class="line-v"></line>
+                <line x1="5" y1="12" x2="19" y2="12" class="line-h"></line>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-panel" aria-hidden="true">
+            <div class="faq-content">
+              <p>
+                Standard therapy sessions are 50 minutes in length. At the outset of our work, meeting weekly is highly recommended to establish consistency, build therapeutic safety, and maintain progress. Over time, as your therapeutic goals are achieved, we may cooperatively transition to bi-weekly or monthly sessions.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span class="faq-question">Do you accept insurance or direct billing?</span>
+            <span class="faq-icon" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19" class="line-v"></line>
+                <line x1="5" y1="12" x2="19" y2="12" class="line-h"></line>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-panel" aria-hidden="true">
+            <div class="faq-content">
+              <p>
+                We do not offer direct billing to insurance providers. At the end of each session, you will be provided with a detailed, clinical invoice/receipt (superbill) containing all therapist license numbers and clinical codes, which you can submit directly to your private insurance provider for reimbursement.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span class="faq-question">What is your cancellation and rescheduling policy?</span>
+            <span class="faq-icon" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19" class="line-v"></line>
+                <line x1="5" y1="12" x2="19" y2="12" class="line-h"></line>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-panel" aria-hidden="true">
+            <div class="faq-content">
+              <p>
+                We operate a strict 24-hour cancellation policy. Because your session time is reserved exclusively for you, any cancellations, modifications, or rescheduling requests made with less than 24 hours notice will be subject to the full session fee.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span class="faq-question">Is therapy confidential?</span>
+            <span class="faq-icon" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19" class="line-v"></line>
+                <line x1="5" y1="12" x2="19" y2="12" class="line-h"></line>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-panel" aria-hidden="true">
+            <div class="faq-content">
+              <p>
+                Yes, confidentiality is the clinical and ethical foundation of our practice. Everything shared within our sessions is strictly confidential and protected by law. The only rare, legally mandated exceptions involve immediate risk of serious harm to yourself or others, or when required by a direct court subpoena.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
   <!-- ── CONTACT / WAITLIST SECTION ── -->
   <section class="waitlist" id="contact">
     <div class="container" style="max-width: 1000px;">
@@ -387,52 +494,35 @@
         });
       });
 
-      // ── HEADLESS GOOGLE FORM BACKGROUND SUBMISSION ──
-      const contactForm = document.getElementById('contactForm');
-      const formStatus = document.getElementById('formStatus');
-      const submitBtn = document.getElementById('submitBtn');
-
-      if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-          e.preventDefault();
+      // ── FAQ ACCORDION INTERACTIVITY ──
+      const faqTriggers = document.querySelectorAll('.faq-trigger');
+      
+      faqTriggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+          const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+          const panel = trigger.nextElementSibling;
           
-          // Show submitting visual feedback
-          submitBtn.disabled = true;
-          submitBtn.textContent = 'Sending...';
-          
-          // Google Form Action URL
-          const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLScMYnf0p0vIUSnEUHN1Z_T4plshThfaB1vK6Vv3VLRre32qUw/formResponse';
-          
-          // Compile Form Data
-          const formData = new FormData(contactForm);
-          
-          // Post to Google Forms via no-cors mode (bypasses CORS restrictions silently)
-          fetch(googleFormUrl, {
-            method: 'POST',
-            body: formData,
-            mode: 'no-cors'
-          })
-          .then(() => {
-            // Display Custom Success Message
-            formStatus.className = 'form-status-message success';
-            formStatus.textContent = 'Thank you. Your message has been received, and we will get back to you soon.';
-            submitBtn.textContent = 'Message Sent ✓';
-            
-            // Reset the form fields
-            contactForm.reset();
-            
-            // Keep button disabled to prevent duplicate submissions
-            submitBtn.disabled = true;
-          })
-          .catch((error) => {
-            console.error('Submission error:', error);
-            formStatus.className = 'form-status-message error';
-            formStatus.textContent = 'An error occurred. Please write directly to hello@solunetherapy.com.';
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Reach Out';
+          // Collapse all other panels for a clean, premium, accordion feel
+          faqTriggers.forEach(otherTrigger => {
+            if (otherTrigger !== trigger) {
+              otherTrigger.setAttribute('aria-expanded', 'false');
+              const otherPanel = otherTrigger.nextElementSibling;
+              otherPanel.style.maxHeight = null;
+              otherPanel.setAttribute('aria-hidden', 'true');
+            }
           });
+          
+          // Toggle current panel
+          trigger.setAttribute('aria-expanded', !isExpanded);
+          if (!isExpanded) {
+            panel.style.maxHeight = panel.scrollHeight + 'px';
+            panel.setAttribute('aria-hidden', 'false');
+          } else {
+            panel.style.maxHeight = null;
+            panel.setAttribute('aria-hidden', 'true');
+          }
         });
-      }
+      });
 
       // ── SCROLL REVEAL INTERSECTION OBSERVER ──
       const observerOptions = {
