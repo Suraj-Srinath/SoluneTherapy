@@ -94,24 +94,36 @@
 
   <!-- ── HERO SECTION ── -->
   <section class="hero" id="hero">
-    <!-- Glowing 3D Orb -->
-    <div class="orb-wrap" aria-hidden="true">
-      <svg viewBox="0 0 100 100" width="124" height="120" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="50" cy="50" r="46" fill="url(#logo-orb-grad)" />
-      </svg>
-    </div>
+    <!-- Background Video -->
+    <video autoplay loop muted playsinline class="hero-video-bg">
+      <source src="assets/hero-bg.mp4" type="video/mp4">
+    </video>
 
-    <h1 class="hero-title fade-in">
-      Therapy that <em>meets</em> <br> your nervous system first
-    </h1>
+    <!-- Overlay to ensure text readability -->
+    <div class="hero-overlay"></div>
 
-    <p class="hero-desc fade-in delay-100">
-      Evidence-based psychotherapy for thoughtful and grounded support
-    </p>
+    <div class="hero-content">
+      <!-- Glowing 3D Orb (Commented out to use the glowing background video instead) -->
+      <!--
+      <div class="orb-wrap" aria-hidden="true">
+        <svg viewBox="0 0 100 100" width="124" height="120" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="46" fill="url(#logo-orb-grad)" />
+        </svg>
+      </div>
+      -->
 
-    <div class="hero-ctas fade-in delay-200">
-      <a href="contact.html" class="btn-primary">Get in Touch</a>
-      <a href="#sessions" class="btn-ghost">Explore Sessions</a>
+      <h1 class="hero-title fade-in">
+        Therapy that <em>meets</em> <br> your nervous system first
+      </h1>
+
+      <p class="hero-desc fade-in delay-100">
+        Evidence-based psychotherapy for thoughtful and grounded support
+      </p>
+
+      <div class="hero-ctas fade-in delay-200">
+        <a href="contact.html" class="btn-primary">Get in Touch</a>
+        <a href="#sessions" class="btn-ghost">Explore Sessions</a>
+      </div>
     </div>
   </section>
 

@@ -438,7 +438,87 @@ nav.scrolled {
   text-align: center;
   position: relative;
   overflow: hidden;
-  background-color: var(--color-linen);
+  background-color: var(--bg-primary);
+}
+
+/* Background video styling */
+.hero-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Translucent gradient overlay for content contrast */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(14, 17, 25, 0.45) 0%, rgba(14, 17, 25, 0.75) 100%);
+  z-index: 1;
+  pointer-events: none;
+  transition: background 0.3s ease;
+}
+
+/* In light mode, use a slightly deeper transparent overlay (22% to 52%) so the video's natural colors are still fully visible, but text contrast is significantly improved */
+[data-theme="light"] .hero-overlay {
+  background: radial-gradient(circle, rgba(14, 17, 25, 0.22) 0%, rgba(14, 17, 25, 0.52) 100%);
+}
+
+/* Flex layout wrapper to raise contents above video background */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Always use high-contrast light colors for hero content due to dark video background */
+.hero .hero-title {
+  color: #FAF7F2;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6), 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero .hero-title em {
+  color: #BAA0C4; /* Always use the lighter mauve for maximum contrast and pop */
+}
+
+.hero .hero-desc {
+  color: #FFFFFF; /* Bright white text for maximum legibility */
+  font-weight: 500; /* Subtle weight increase to stand out against stars */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6), 0 3px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Override primary button in hero to be light with dark text for high contrast on dark video */
+.hero .btn-primary {
+  background-color: #FAF7F2;
+  color: #161A23;
+}
+
+.hero .btn-primary:hover {
+  background-color: #EDEBE6;
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.15);
+}
+
+/* Override ghost button in hero for light text/border on dark video */
+.hero .btn-ghost {
+  color: #FAF7F2;
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Thicker, more visible border */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.hero .btn-ghost:hover {
+  border-color: #FAF7F2;
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 /* Breathing background circles */
