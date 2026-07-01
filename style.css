@@ -489,7 +489,9 @@ nav.scrolled {
 }
 
 .hero .hero-title em {
-  color: #BAA0C4; /* Always use the lighter mauve for maximum contrast and pop */
+  color: #E5D4ED; /* Brighter, glowing lavender-mauve for maximum contrast and pop */
+  text-shadow: 0 0 12px rgba(186, 160, 196, 0.4), 0 1px 2px rgba(0, 0, 0, 0.6);
+  font-weight: 500; /* Give the thin serif italic slightly more weight/presence */
 }
 
 .hero .hero-desc {
